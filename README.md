@@ -28,7 +28,7 @@ import { CircularFlag, CircularFlagLanguage } from 'solid-circle-flags';
 
 // With custom cdn
 // You can also set the CDN via the 'VITE_PUBLIC_CIRCLE_FLAGS_CDN_URL' env.
-// Do not a set the cdn={} if you plan on using the env
+// Do not set the cdn={} if you plan on using the env
 <CircularFlag countryCode="es-ar" width={100} height={100} cdn="https://hatscripts.github.io/circle-flags/flags/"/>
 <CircularFlagLanguage languageCode="an" width={100} height={100} cdn='some-language-cdn-url'/>
 ```
