@@ -24,19 +24,15 @@ export function CircularGraphic(props: CircularGraphicProps): JSX.Element {
     const rawCdn = props.cdn?.trim() || ENV_CDN_URL || DEFAULT_CDN_URLS[props.type]
     return rawCdn.replace(/\/+$/, '') + '/'
   }
-
   const getCleanCode = () => {
     return props.code.replace(/^\/+/, '')
   }
-
   const getSourceUrl = () => {
     return `${getCdnUrl()}${getCleanCode()}.svg`
   }
-
   const getAriaLabel = () => {
     return props.label || `${props.type} ${getCleanCode()} flag`
   }
-
   return (
     <object
       data={getSourceUrl()}
