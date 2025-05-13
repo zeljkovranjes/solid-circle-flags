@@ -35,7 +35,6 @@ export function CircularFlag(props: CircularFlagProps): JSX.Element {
 export function CircularFlagLanguage(props: CircularFlagLanguageProps): JSX.Element {
   const { languageCode, width, height, cdn, label } = props
   const mappedCountryCode = languageToCountryMap[languageCode as MappableLanguage]
-
   if (mappedCountryCode !== undefined) {
     return (
       <CircularFlag
