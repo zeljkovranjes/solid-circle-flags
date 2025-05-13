@@ -1,5 +1,5 @@
 import { JSX } from 'solid-js/jsx-runtime'
-import { Country } from './countries'
+import { Country, countryToCountryMap, MappableCountry } from './countries'
 import { Language, languageToCountryMap, MappableLanguage } from './languages'
 import { CircularGraphic } from './components/CircularGraphic'
 
@@ -20,16 +20,31 @@ interface CircularFlagLanguageProps {
 }
 
 export function CircularFlag(props: CircularFlagProps): JSX.Element {
-  return (
-    <CircularGraphic
-      code={props.countryCode}
-      type="country"
-      width={props.width}
-      height={props.height}
-      cdn={props.cdn}
-      label={props.label}
-    />
-  )
+  const { countryCode, width, height, cdn, label } = props
+  const mappedCountryCode = countryToCountryMap[countryCode as MappableCountry]
+  if (mappedCountryCode !== undefined) {
+    return (
+      <CircularGraphic
+        code={mappedCountryCode}
+        type="country"
+        width={width}
+        height={height}
+        cdn={cdn}
+        label={label}
+      />
+    )
+  } else {
+    return (
+      <CircularGraphic
+        code={countryCode}
+        type="country"
+        width={width}
+        height={height}
+        cdn={cdn}
+        label={label}
+      />
+    )
+  }
 }
 
 export function CircularFlagLanguage(props: CircularFlagLanguageProps): JSX.Element {

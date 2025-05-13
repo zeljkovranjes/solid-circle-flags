@@ -413,3 +413,58 @@ export type Country =
   | 'za' // South Africa
   | 'zm' // Zambia
   | 'zw' // Zimbabwe
+
+export type MappableCountry =
+  | 'ac' // Ascension Island
+  | 'bq' // Bonaire, Sint Eustatius and Saba
+  | 'bv' // Bouvet Island
+  | 'cn-hk' // Hong Kong (China)
+  | 'cp' // Clipperton Island
+  | 'dg' // Diego Garcia
+  | 'ea' // Ceuta and Melilla
+  | 'eu' // European Union
+  | 'fx' // Metropolitan France
+  | 'hm' // Heard Island and McDonald Islands
+  | 'ic' // Canary Islands
+  | 'sh' // Saint Helena, Ascension and Tristan da Cunha
+  | 'sj' // Svalbard and Jan Mayen
+  | 'su' // Soviet Union (historical)
+  | 'ta' // Tristan da Cunha
+  | 'uk' // United Kingdom
+  | 'um' // U.S. Minor Outlying Islands
+  | 'us-as' // American Samoa
+  | 'us-gu' // Guam
+  | 'us-mp' // Northern Mariana Islands
+  | 'us-pr' // Puerto Rico
+  | 'us-um' // U.S. Minor Outlying Islands (duplicate of 'um')
+  | 'us-vi' // U.S. Virgin Islands
+
+export const countryToCountryMap: Record<MappableCountry, Country> = {
+  ac: 'sh-ac',
+  bq: 'bq-bo',
+  bv: 'no',
+  'cn-hk': 'hk',
+  cp: 'fr-cp',
+  dg: 'io',
+  ea: 'es-ce',
+  eu: 'european_union',
+  fx: 'fr',
+  hm: 'au',
+  ic: 'es-cn',
+  sh: 'sh-hl',
+  sj: 'no',
+  su: 'soviet_union',
+  ta: 'sh-ta',
+  uk: 'gb',
+  um: 'us',
+  'us-as': 'as',
+  'us-gu': 'gu',
+  'us-mp': 'mp',
+  'us-pr': 'pr',
+  'us-um': 'us',
+  'us-vi': 'vi',
+}
+
+export function mappableCountryToCountry(language: MappableCountry): Country | undefined {
+  return countryToCountryMap[language]
+}
