@@ -2,8 +2,8 @@ import { JSX } from 'solid-js/jsx-runtime'
 import { FallbackSvg } from './FallbackSvg'
 
 const DEFAULT_CDN_URLS = {
-  country: 'https://bucket.zeljko.me/flags/',
-  language: 'https://bucket.zeljko.me/languages/',
+  country: 'https://circle-flags.zeljko.me/flags/',
+  language: 'https://circle-flags.zeljko.me/flags/language/',
 }
 
 const ENV_CDN_URL = import.meta.env.VITE_PUBLIC_CIRCLE_FLAGS_CDN_URL?.trim() || ''
