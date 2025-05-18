@@ -19,7 +19,7 @@ type CircularFlagLanguageProps = {
   label?: string
 } & JSX.ImgHTMLAttributes<HTMLImageElement>
 
-export function CircularFlag(props: CircularFlagProps): JSX.Element {
+export function CircleFlag(props: CircularFlagProps): JSX.Element {
   const { countryCode, width, height, cdn, label, ...imgProps } = props
   const mappedCountryCode = countryToCountryMap[countryCode as MappableCountry]
 
@@ -50,12 +50,12 @@ export function CircularFlag(props: CircularFlagProps): JSX.Element {
   }
 }
 
-export function CircularFlagLanguage(props: CircularFlagLanguageProps): JSX.Element {
+export function CircleFlagLanguage(props: CircularFlagLanguageProps): JSX.Element {
   const { languageCode, width, height, cdn, label, ...imgProps } = props
   const mappedCountryCode = languageToCountryMap[languageCode as MappableLanguage]
   if (mappedCountryCode !== undefined) {
     return (
-      <CircularFlag
+      <CircleFlag
         countryCode={mappedCountryCode}
         width={width}
         height={height}
