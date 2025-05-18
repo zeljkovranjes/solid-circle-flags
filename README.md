@@ -20,7 +20,7 @@ pnpm add solid-circle-flags
 Use it:
 
 ```tsx
-import { CircularFlag, CircularFlagLanguage } from 'solid-circle-flags';
+import { CircleFlag, CircleFlagLanguage } from 'solid-circle-flags';
 
 // Using default cdn
 <CircleFlag countryCode="us" width={100} height={100}/>
