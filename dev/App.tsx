@@ -5,7 +5,9 @@ import { CircularFlag, CircularFlagLanguage } from 'src'
 const App: Component = () => {
   return (
     <div class={styles.App}>
-      <CircularFlag countryCode="bq" width={100} height={100} />
+      <CircularFlag countryCode="af-emirate" width={100} height={100} />
+      <CircularFlag countryCode="xx" width={100} height={100} />
+
       <CircularFlag
         countryCode="as"
         width={100}
