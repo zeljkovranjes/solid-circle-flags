@@ -413,6 +413,7 @@ export type Country =
   | 'za' // South Africa
   | 'zm' // Zambia
   | 'zw' // Zimbabwe
+  | 'xx' // FALLBACK
 
 export type MappableCountry =
   | 'ac' // Ascension Island
