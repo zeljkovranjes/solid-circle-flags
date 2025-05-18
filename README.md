@@ -23,12 +23,12 @@ Use it:
 import { CircularFlag, CircularFlagLanguage } from 'solid-circle-flags';
 
 // Using default cdn
-<CircularFlag countryCode="us" width={100} height={100}/>
-<CircularFlagLanguage languageCode="an" width={100} height={100}/>
+<CircleFlag countryCode="us" width={100} height={100}/>
+<CircleFlagLanguage languageCode="an" width={100} height={100}/>
 
 // With custom cdn
 // You can also set the CDN via the 'VITE_PUBLIC_CIRCLE_FLAGS_CDN_URL' env.
 // Do not set the cdn={} if you plan on using the env
-<CircularFlag countryCode="es-ar" width={100} height={100} cdn="https://hatscripts.github.io/circle-flags/flags/"/>
-<CircularFlagLanguage languageCode="an" width={100} height={100} cdn='some-language-cdn-url'/>
+<CircleFlag countryCode="es-ar" width={100} height={100} cdn="https://hatscripts.github.io/circle-flags/flags/"/>
+<CircleFlagLanguage languageCode="an" width={100} height={100} cdn='some-language-cdn-url'/>
 ```
