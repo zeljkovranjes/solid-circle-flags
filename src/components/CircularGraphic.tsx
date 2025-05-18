@@ -11,16 +11,17 @@ const ENV_CDN_URL = import.meta.env.VITE_PUBLIC_CIRCLE_FLAGS_CDN_URL?.trim() || 
 
 type GraphicType = 'country' | 'language'
 
-interface CircularGraphicProps {
+type CircularGraphicProps = {
   code: string
   type: GraphicType
   width: number
   height: number
   cdn?: string
   label?: string
-}
+} & JSX.ImgHTMLAttributes<HTMLImageElement>
 
 export function CircularGraphic(props: CircularGraphicProps): JSX.Element {
+  const { code, type, cdn, label, width, height, alt, src, onError, ...restProps } = props
   const [imgError, setImgError] = createSignal(false)
   const getCdnUrl = () => {
     const rawCdn = props.cdn?.trim() || ENV_CDN_URL || DEFAULT_CDN_URLS[props.type]
@@ -38,6 +39,7 @@ export function CircularGraphic(props: CircularGraphicProps): JSX.Element {
   const handleError = () => {
     setImgError(true)
   }
+
   return (
     <>
       {!imgError() ? (
@@ -47,6 +49,7 @@ export function CircularGraphic(props: CircularGraphicProps): JSX.Element {
           height={props.height}
           alt={getAriaLabel()}
           onError={handleError}
+          {...restProps}
         />
       ) : (
         <FallbackSvg width={props.width} height={props.height} />
