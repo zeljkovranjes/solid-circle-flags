@@ -3,25 +3,26 @@ import { Country, countryToCountryMap, MappableCountry } from './countries'
 import { Language, languageToCountryMap, MappableLanguage } from './languages'
 import { CircularGraphic } from './components/CircularGraphic'
 
-interface CircularFlagProps {
+type CircularFlagProps = {
   countryCode: Country
   width: number
   height: number
   cdn?: string
   label?: string
-}
+} & JSX.ImgHTMLAttributes<HTMLImageElement>
 
-interface CircularFlagLanguageProps {
+type CircularFlagLanguageProps = {
   languageCode: Language
   width: number
   height: number
   cdn?: string
   label?: string
-}
+} & JSX.ImgHTMLAttributes<HTMLImageElement>
 
 export function CircularFlag(props: CircularFlagProps): JSX.Element {
-  const { countryCode, width, height, cdn, label } = props
+  const { countryCode, width, height, cdn, label, ...imgProps } = props
   const mappedCountryCode = countryToCountryMap[countryCode as MappableCountry]
+
   if (mappedCountryCode !== undefined) {
     return (
       <CircularGraphic
@@ -31,6 +32,7 @@ export function CircularFlag(props: CircularFlagProps): JSX.Element {
         height={height}
         cdn={cdn}
         label={label}
+        {...imgProps}
       />
     )
   } else {
@@ -42,13 +44,14 @@ export function CircularFlag(props: CircularFlagProps): JSX.Element {
         height={height}
         cdn={cdn}
         label={label}
+        {...imgProps}
       />
     )
   }
 }
 
 export function CircularFlagLanguage(props: CircularFlagLanguageProps): JSX.Element {
-  const { languageCode, width, height, cdn, label } = props
+  const { languageCode, width, height, cdn, label, ...imgProps } = props
   const mappedCountryCode = languageToCountryMap[languageCode as MappableLanguage]
   if (mappedCountryCode !== undefined) {
     return (
@@ -58,6 +61,7 @@ export function CircularFlagLanguage(props: CircularFlagLanguageProps): JSX.Elem
         height={height}
         cdn={cdn}
         label={label}
+        {...imgProps}
       />
     )
   } else {
@@ -69,6 +73,7 @@ export function CircularFlagLanguage(props: CircularFlagLanguageProps): JSX.Elem
         height={height}
         cdn={cdn}
         label={label}
+        {...imgProps}
       />
     )
   }
