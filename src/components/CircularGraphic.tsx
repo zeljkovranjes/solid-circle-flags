@@ -1,5 +1,6 @@
 import { JSX } from 'solid-js/jsx-runtime'
 import { FallbackSvg } from './FallbackSvg'
+import { createSignal } from 'solid-js'
 
 const DEFAULT_CDN_URLS = {
   country: 'https://circle-flags.zeljko.me/flags/',
@@ -20,6 +21,7 @@ interface CircularGraphicProps {
 }
 
 export function CircularGraphic(props: CircularGraphicProps): JSX.Element {
+  const [imgError, setImgError] = createSignal(false)
   const getCdnUrl = () => {
     const rawCdn = props.cdn?.trim() || ENV_CDN_URL || DEFAULT_CDN_URLS[props.type]
     return rawCdn.replace(/\/+$/, '') + '/'
@@ -33,16 +35,22 @@ export function CircularGraphic(props: CircularGraphicProps): JSX.Element {
   const getAriaLabel = () => {
     return props.label || `${props.type} ${getCleanCode()} flag`
   }
+  const handleError = () => {
+    setImgError(true)
+  }
   return (
-    <object
-      data={getSourceUrl()}
-      type="image/svg+xml"
-      width={props.width}
-      height={props.height}
-      role="img"
-      aria-label={getAriaLabel()}
-    >
-      <FallbackSvg width={props.width} height={props.height} />
-    </object>
+    <>
+      {!imgError() ? (
+        <img
+          src={getSourceUrl()}
+          width={props.width}
+          height={props.height}
+          alt={getAriaLabel()}
+          onError={handleError}
+        />
+      ) : (
+        <FallbackSvg width={props.width} height={props.height} />
+      )}
+    </>
   )
 }
