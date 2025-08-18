@@ -3,6 +3,9 @@ import { Country, countryToCountryMap, MappableCountry } from './countries'
 import { Language, languageToCountryMap, MappableLanguage } from './languages'
 import { CircularGraphic } from './components/CircularGraphic'
 
+export type { Country } from './countries';
+export type { Language } from './languages';
+
 type CircularFlagProps = {
   countryCode: Country
   width: number
