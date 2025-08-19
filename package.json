@@ -1,17 +1,17 @@
 {
   "name": "solid-circle-flags",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A Solid component with a collection of 300+ minimal circular SVG country flags.",
   "license": "MIT",
   "author": "Zeljko Vranjes (chomnr)",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chomnr/solid-circle-flags.git"
+    "url": "git+https://github.com/zeljkovranjes/solid-circle-flags.git"
   },
-  "homepage": "https://github.com/chomnr/solid-circle-flags#readme",
+  "homepage": "https://github.com/zeljkovranjes/solid-circle-flags#readme",
   "bugs": {
-    "url": "https://github.com/chomnr/solid-circle-flags/issues"
+    "url": "https://github.com/zeljkovranjes/solid-circle-flags/issues"
   },
   "files": [
     "dist"
