@@ -1,6 +1,6 @@
 # solid-circle-flags
 
-[![npm package](https://img.shields.io/npm/v/posthog-js?style=flat-square)](https://www.npmjs.com/package/posthog-js)
+[![npm package](https://img.shields.io/npm/v/solid-circle-flags?style=flat-square)](https://www.npmjs.com/package/solid-circle-flags)
 [![MIT License](https://img.shields.io/badge/License-MIT-red.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 SolidJS component with 300+ minimal circular SVG country flags.
